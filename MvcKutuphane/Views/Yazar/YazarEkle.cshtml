@@ -1,0 +1,21 @@
+﻿@model MvcKutuphane.Models.Entity.TBLYAZAR
+@{
+    ViewBag.Title = "YazarEkle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<br />
+<h2>Yazar Ekleme Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+    <label>Yazar Adı</label>
+    @Html.TextBoxFor(x => x.AD, new { @class = "form-control" })
+    <br />
+    <label>Yazar Soyadı</label>
+    @Html.TextBoxFor(x => x.SOYAD, new { @class = "form-control" })
+    <br />
+    <label>Detay</label>
+    @Html.TextAreaFor(x => x.DETAY, new { @class = "form-control" })
+    <br />
+    
+    <button class="btn btn-primary">Yazar Ekle</button>
+</form>
