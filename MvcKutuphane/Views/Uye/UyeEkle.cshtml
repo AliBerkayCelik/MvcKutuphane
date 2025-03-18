@@ -1,0 +1,51 @@
+﻿@model MvcKutuphane.Models.Entity.TBLUYELER
+@{
+    ViewBag.Title = "UyeEkle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+
+<br />
+<br />
+<form class="form-group" method="post">
+    <div>
+        <label>Üye Adı</label>
+        @Html.TextBoxFor(x => x.AD, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.AD, "", new { @style = "color:red" })
+        <br />
+        <label>Üye Soyadı</label>
+        @Html.TextBoxFor(x => x.SOYAD, new { @class = "form-control" })
+
+        <br />
+        <label>Mail</label>
+        @Html.TextBoxFor(x => x.MAIL, new { @class = "form-control" })
+
+        <br />
+        <label>Kullanıcı Adı</label>
+        @Html.TextBoxFor(x => x.KULLANICI, new { @class = "form-control" })
+
+        <br />
+        <label>Şifre</label>
+        @Html.TextBoxFor(x => x.SIFRE, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.SIFRE, "", new { @style = "color:red" })
+        <br />
+        <label>Fotoğraf Linki</label>
+        @Html.TextBoxFor(x => x.FOTOGRAF, new { @class = "form-control" })
+
+        <br />
+        <label>Telefon</label>
+        @Html.TextBoxFor(x => x.TELEFON, new { @class = "form-control" })
+
+        <br />
+        <label>Okul</label>
+        @Html.TextBoxFor(x => x.OKUL, new { @class = "form-control" })
+
+        <br />
+    </div>
+    <br />
+    <div>
+        <button class="btn btn-primary" id="Btn1">Üye Ekle</button>
+    </div>
+
+</form>
