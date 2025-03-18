@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Web;
 using System.Web.Mvc;
 using MvcKutuphane.Models.Entity;
@@ -10,12 +11,16 @@ namespace MvcKutuphane.Controllers
     public class KitapController : Controller
     {
         DbKutuphaneEntities db=new DbKutuphaneEntities();
-        // GET: Kitap
-        public ActionResult Index()
+		// GET: Kitap
+        public ActionResult Index(string p)
         {
-            var kitaplar = db.TBLKITAP.ToList();
-            return View(kitaplar);
-        }
+			var values = from x in db.TBLKITAP select x;
+			if (!string.IsNullOrEmpty(p))
+			{
+				values = values.Where(y => y.AD.Contains(p));
+			}
+			return View(values.ToList());
+		}
         [HttpGet]
         public ActionResult KitapEkle()
         {

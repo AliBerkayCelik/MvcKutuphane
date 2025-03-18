@@ -7,7 +7,14 @@
 <br />
 <h2>Kitaplar Listesi</h2>
 <br />
-<input type="text" class="form-control" placeholder="Aranacak Kitabı Giriniz..." />
+@using (Html.BeginForm("Index", "Kitap", FormMethod.Get))
+{
+    <p>
+        Kitap Adı: @Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </p>
+}
+
 <br />
 
 <table class="table table-bordered">

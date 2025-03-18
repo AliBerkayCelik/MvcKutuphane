@@ -1,0 +1,26 @@
+﻿@model MvcKutuphane.Models.Entity.TBLPERSONEL
+
+@{
+    ViewBag.Title = "PersonelGetir";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<br />
+<h2>Kategori Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post))
+{
+    <div class="form-group">
+       
+        @Html.HiddenFor(k => k.ID, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.PERSONEL)
+        @Html.TextBoxFor(k => k.PERSONEL, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+
+
+}
+
+
