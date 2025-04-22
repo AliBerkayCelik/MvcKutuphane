@@ -1,0 +1,38 @@
+﻿@model MvcKutuphane.Models.Entity.TBLHAREKET
+@{
+    ViewBag.Title = "OduncIade";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<br />
+<h2>Kategori Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("OduncGuncelle", "Odunc", FormMethod.Post))
+{
+    <div class="form-group">
+
+        @Html.LabelFor(k => k.ID)
+        @Html.TextBoxFor(k => k.ID, new { @class = "form-control" })
+        <br />
+
+        @Html.LabelFor(k => k.KITAP)
+        @Html.TextBoxFor(k => k.TBLKITAP.AD, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.UYE)
+        @Html.TextBoxFor(k => k.TBLUYELER.AD, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.ALISTARIHI)
+        @Html.TextBoxFor(k => k.ALISTARIHI, "{0: dd.MM.yyyy}", new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(k => k.IADETARIH)
+        @Html.TextBoxFor(k => k.IADETARIH, "{0: dd.MM.yyyy}", new { @class = "form-control" })
+        <br />
+        <label>Üyenin Getirdiği Tarih</label>
+        <input type="text" class="form-control" name="UYEGETIRTARIH" value="@DateTime.Now.ToShortDateString()" />
+        <br />
+        <button class="btn btn-success">Ödünç Kitabı Geri Al</button>
+    </div>
+
+
+}
+

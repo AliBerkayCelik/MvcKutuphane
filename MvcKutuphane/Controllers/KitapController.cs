@@ -85,13 +85,27 @@ namespace MvcKutuphane.Controllers
 			kitap.BASIMYIL = p.BASIMYIL;
 			kitap.YAYINEVI = p.YAYINEVI;
 			kitap.SAYFA = p.SAYFA;
+			kitap.DURUM =true;
 			var ktg = db.TBLKATEGORI.Where(k => k.ID == p.TBLKATEGORI.ID).FirstOrDefault();
 			var yzr = db.TBLYAZAR.Where(y => y.ID == p.TBLYAZAR.ID).FirstOrDefault();
 			kitap.KATEGORI = ktg.ID;
 			kitap.YAZAR = yzr.ID;
+
 			db.SaveChanges();
 			return RedirectToAction("Index");
 		}
-		
+		public ActionResult OduncIade(int id)
+		{
+			var odn = db.TBLHAREKET.Find(id);
+			return View("Odunciade", odn);
+		}
+		public ActionResult OduncGuncelle(TBLHAREKET p)
+		{
+			var hrk = db.TBLHAREKET.Find(p.ID);
+			hrk.UYEGETIRTARIH = p.UYEGETIRTARIH;
+			hrk.ISLEMDURUM = true;
+			db.SaveChanges();
+			return RedirectToAction("Index");
+		}
 	}
 }
